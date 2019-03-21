@@ -1,5 +1,5 @@
 {
-    "name": "outresource",
+    "name": "aeessui",
     "version": "1.0.0",
     "description": "AEESS Web Project",
     "main": "resources/assets/js/app.js",
@@ -43,5 +43,10 @@
         "> 1%",
         "maintained node versions",
         "not dead"
-    ]
+    ],
+    "devDependencies": {
+        "resolve-url-loader": "^2.3.1",
+        "sass-loader": "^7.1.0",
+        "vue-template-compiler": "^2.6.10"
+    }
 }

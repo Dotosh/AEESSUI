@@ -19,4 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('users', 'AdminUsersController');
+
+Route::get('/ads ', function (){
+
+    return view('admin.index');
+});
+
+
+Route::resource('ads/users', 'AdminUsersController');
