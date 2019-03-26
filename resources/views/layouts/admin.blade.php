@@ -20,12 +20,12 @@
     <link rel="stylesheet" href="{{url('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css')}}" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="{{asset('css/style4.css')}}">
+    <link href="{{asset('css/adminmaster/styles.css')}}" rel="stylesheet">
 
     <!-- Font Awesome JS url('https://use.fontawesome.com/releases/v5.0.13/js/solid.js', https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js-->
     <script defer src="{{asset('js/adminmaster/solid.js')}}" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="{{asset('js/adminmaster/fontawesome.js')}}" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
-    <link href="{{asset('css/adminmaster/styles.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('js/adminmaster/bootstrap.min.js')}}">
 
 </head>
@@ -68,22 +68,38 @@
 
         <ul class="list-unstyled components">
             <li class="active">
+                <a href="#accountSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-copy"></i>
+                    My Account
+                </a>
+                <ul class="collapse list-unstyled" id="accountSubmenu">
+                    <li>
+                        <a href="#">Profile</a>
+                    </li>
+                    <li>
+                        <a href="#">LogOut</a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li>
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-home"></i>
-                    Home
+                    Users
                 </a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                        <a href="#">Home 1</a>
+                        <a href="{{route('users.index')}}">All Users</a>
                     </li>
                     <li>
-                        <a href="#">Home 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 3</a>
+                        <a href="{{route('users.create')}}">Create Users</a>
                     </li>
                 </ul>
             </li>
+
+
+
             <li>
                 <a href="#">
                     <i class="fas fa-briefcase"></i>
@@ -124,21 +140,7 @@
                 </a>
             </li>
 
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-copy"></i>
-                    My Account
-                </a>
-                <ul class="collapse list-unstyled" id="">
-                    <li>
-                        <a href="#">Profile</a>
-                    </li>
-                    <li>
-                        <a href="#">LogOut</a>
-                    </li>
 
-                </ul>
-            </li>
         </ul>
 
         <ul class="list-unstyled CTAs">
