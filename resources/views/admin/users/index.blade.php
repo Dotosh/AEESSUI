@@ -11,6 +11,7 @@
     <thead>
     <tr>
         <th>Id</th>
+        <th>Photo</th>
         <th>Name</th>
         <th>Email</th>
         <td>Role</td>
@@ -27,6 +28,7 @@
 
             <tr>
                 <td>{{$user->id}}</td>
+                <td>{{$user->photo_id}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->role->name}}</td>

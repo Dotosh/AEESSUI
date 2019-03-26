@@ -1,15 +1,27 @@
 var elixir = require('laravel-elixir');
 
 elixir(function (mix) {
-    mix.sass('resources/sass/app.scss','public/css' )
+    mix.sass('resources/sass/app.sass','public/css' )
         .styles([
 
 
+            'bootstrap.css',
             'bootstrap.min.css',
+            'bootstrap.css.map',
+            'bootstrap.min.css.map',
             'bootstrap-colorpicker.css',
             'bootstrap-datepicker.css',
             'bootstrap-theme.css',
+            'bootstrap-grid.css',
+            'bootstrap-grid.css.map',
+            'bootstrap-grid.min.css',
+            'bootstrap-grid.min.css.map',
+            'bootstrap-reboot.css',
+            'bootstrap-reboot.css.map',
+            'bootstrap-reboot.min.css',
+            'bootstrap-reboot.min.css.map',
             'font-awesome.css',
+            'font-awesome.min.css',
             'daterangepicker.css',
             'elegant-icons-style.css',
             'fullcalendar.css',
@@ -20,14 +32,17 @@ elixir(function (mix) {
             'style.css',
             'style-responsive.css',
             'widgets.css',
-            'xcharts.min.css'
+            'xcharts.min.css',
+            'aeessui.css'
 
         ], 'public/css')
 
 
         .scripts([
 
-            'bootstrap.js'
+            'app.js',
+            'bootstrap.js',
+            'aeessui.js'
 
         ], 'public/js')
 
