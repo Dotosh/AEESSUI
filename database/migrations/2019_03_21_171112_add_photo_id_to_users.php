@@ -17,7 +17,7 @@ class AddPhotoIdToUsers extends Migration
             //this migration was done by - php artisan make:migration '...' --table=users
             //this adds the $table to users table
 
-            $table->string('photo_id')->();
+            $table->string('photo_id');
 
         });
     }

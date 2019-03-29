@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UsersEditRequest;
 use App\Http\Requests\UsersRequest;
 use App\Photo;
 use App\Role;
 use App\User;
+use function Composer\Autoload\includeFile;
 use Illuminate\Http\Request;
 
 class AdminUsersController extends Controller
@@ -51,7 +53,17 @@ class AdminUsersController extends Controller
 //        User::create($request->all());
 //        redirect('/ads/users');
 
-        $input = $request->all();
+        //trim deletes all spaces
+
+        if (trim($request->password) == ''){
+//          $input = $request->only('password');
+            $input = $request->except('password');
+
+        } else {
+
+            $input = $request->all();
+        }
+
 
         if ($file = $request->file('photo_id')){
 
@@ -67,6 +79,8 @@ class AdminUsersController extends Controller
         $input['password'] = bcrypt($request->password);
 
         User::create($input);
+
+        redirect('/ads/users');
 
     }
 
@@ -89,7 +103,12 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.user.create');
+
+        $user = User::findOrFail($id);
+
+        $roles = Role::pluck('name', 'id')->all();
+
+        return view('admin.users.edit', compact('user','roles'));
     }
 
     /**
@@ -99,9 +118,40 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UsersEditRequest $request, $id)
     {
         //
+//        return $request->all();
+
+        $user = User::findOrFail($id);
+
+        if (trim($request->password) == ''){
+//          $input = $request->only('password');
+            $input = $request->except('password');
+
+        } else {
+
+            $input = $request->all();
+        }
+
+
+        if ($file = $request->file('photo_id')){
+
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('img', $name);
+
+            $photo = Photo::create(['file'=>$name]);
+
+            $input['photo_id'] = $photo->id;
+
+        };
+
+        $input['password'] = bcrypt($request->password);
+
+        $user->update($input);
+
+        return redirect('/ads/users');
     }
 
     /**

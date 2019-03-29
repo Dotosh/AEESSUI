@@ -1,8 +1,7 @@
 /*
     DEMO STYLE
 */
-
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -14,14 +13,6 @@ p {
     font-weight: 300;
     line-height: 1.7em;
     color: #999;
-}
-
-a,
-a:hover,
-a:focus {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.3s;
 }
 
 .navbar {

@@ -21,6 +21,7 @@
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="{{asset('css/style4.css')}}">
     <link href="{{asset('css/adminmaster/styles.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/adminmaster/customstyle.css')}}">
 
     <!-- Font Awesome JS url('https://use.fontawesome.com/releases/v5.0.13/js/solid.js', https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js-->
     <script defer src="{{asset('js/adminmaster/solid.js')}}" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -28,9 +29,13 @@
 
     <link rel="stylesheet" href="{{asset('js/adminmaster/bootstrap.min.js')}}">
 
+
+
 </head>
 
 <body>
+
+@yield('body')
 
 <div class="header text-right">
     <div class="container">
@@ -187,7 +192,7 @@
         </nav>
 
 
-        <div>
+        <div class="container-fluid">
 
             @yield('content')
 
