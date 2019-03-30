@@ -25,5 +25,9 @@ Route::get('/ads ', function (){
     return view('admin.index');
 });
 
+Route::group(['middleware'=>'admin'], function (){
 
-Route::resource('ads/users', 'AdminUsersController');
+    Route::resource('ads/users', 'AdminUsersController');
+});
+
+

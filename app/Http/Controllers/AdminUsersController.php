@@ -9,6 +9,7 @@ use App\Role;
 use App\User;
 use function Composer\Autoload\includeFile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminUsersController extends Controller
 {
@@ -80,7 +81,9 @@ class AdminUsersController extends Controller
 
         User::create($input);
 
-        redirect('/ads/users');
+        Session::flash('Created_user', 'User Successfully Created');
+
+        return redirect('/ads/users');
 
     }
 
@@ -147,9 +150,12 @@ class AdminUsersController extends Controller
 
         };
 
+        //this encrypts the password
         $input['password'] = bcrypt($request->password);
 
         $user->update($input);
+
+        Session::flash('Updated_user', 'User Updated Successfully');
 
         return redirect('/ads/users');
     }
@@ -163,5 +169,24 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         //
+//        return ('DESYTROY0');
+
+        $user = User::findOrFail($id);
+
+        //this deletes user from database including the image
+        //the image path should be included but there is an accessor used -
+        //unlink(public_path().'/img' . $user->photo->file)
+        if ($user->photo){
+
+            unlink(public_path() . $user->photo->file);
+
+        }
+
+        $user->delete();
+
+        //the Session Facade alerts a message in the index blade
+        Session::flash('deleted_user', 'User Deleted Successfully');
+
+        return redirect('/ads/users');
     }
 }

@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 
+
 @section('content')
 
     <h1 class="text-center">Admin Create Page</h1>
@@ -23,7 +24,7 @@
 
         <div class="form-group ">
             {!! Form::label('is_active', 'Status', ['class'=>'col-lg-2']) !!}
-            {!! Form::select('is_active', array(1=>'Active', 0=>'Not Active'), null, ['class'=>'form-control']) !!}
+            {!! Form::select('is_active', array(0=>'Not Active', 1=>'Active'), null, ['class'=>'form-control']) !!}
         </div>
 
         <div class="form-group ">

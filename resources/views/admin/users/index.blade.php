@@ -3,8 +3,28 @@
 
 @section('content')
 
+    @if(Session::has('deleted_user'))
 
-<h1>User</h1>
+        <p class="alert alert-danger text-center" >{{session('deleted_user')}}</p>
+
+    @elseif(Session::has('Updated_user'))
+
+        <p class="alert alert-success text-center" >{{session('Updated_user')}}</p>
+
+
+    @elseif(Session::has('Created_user'))
+
+        <p class="alert alert-success text-center" >{{session('Created_user')}}</p>
+
+    @endif
+
+
+
+
+
+
+
+        <h1>Users</h1>
 
 <table class="table table-condensed">
     <thead>
