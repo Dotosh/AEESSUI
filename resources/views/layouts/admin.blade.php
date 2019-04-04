@@ -112,17 +112,14 @@
                 </a>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-copy"></i>
-                    Pages
+                    Posts
                 </a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                        <a href="#">Page 1</a>
+                        <a href="{{route('posts.index')}}">All Posts</a>
                     </li>
                     <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
+                        <a href="{{route('posts.create')}}">Create Posts</a>
                     </li>
                 </ul>
             </li>
@@ -191,7 +188,7 @@
 {{--                <div>--}}
                 <div>
                     <a id="navbarDropdown" class="pul nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
+                        {{ Auth::user()->name}} <span class="caret"></span>
                     </a>
                 </div>
             </div>
