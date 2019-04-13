@@ -4,28 +4,24 @@
 
 @section('content')
 
-    <h1>Posts</h1>
 
 
+    @if(Session::has('Deleted_post'))
 
-@section('content')
+        <p class="alert alert-danger text-center" >{{session('Deleted_post')}}</p>
 
-    @if(Session::has('deleted_user'))
+    @elseif(Session::has('Updated_post'))
 
-        <p class="alert alert-danger text-center" >{{session('deleted_user')}}</p>
-
-    @elseif(Session::has('Updated_user'))
-
-        <p class="alert alert-success text-center" >{{session('Updated_user')}}</p>
+        <p class="alert alert-success text-center" >{{session('Updated_post')}}</p>
 
 
-    @elseif(Session::has('Created_user'))
+    @elseif(Session::has('Created_post'))
 
-        <p class="alert alert-success text-center" >{{session('Created_user')}}</p>
+        <p class="alert alert-success text-center" >{{session('Created_post')}}</p>
 
     @endif
 
-
+    <h1>Posts</h1>
 
     <table class="table">
         <thead>
@@ -47,9 +43,9 @@
 
             <tr>
                 <td>{{$post->id}}</td>
-                <td><img height="50" src="{{$post->photo ? $photo->photo->file : 'http://placehold.it/400x400'}}" alt=""></td>
+                <td><img height="50" src="{{$post->photo ? $post->photo->file : 'http://placehold.it/400x400'}}" alt=""></td>
                 <td>{{$post->user->name}}</td>
-                <td>{{$post->category_id}}</td>
+                <td>{{$post->category ? $post->category->name : 'Uncategorized' }}</td>
                 <td>{{$post->title}}</td>
                 <td>{{$post->body}}</td>
                 <td>{{$post->created_at->diffForHumans()}}</td>

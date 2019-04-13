@@ -29,7 +29,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
+//  ROle eloquent
     public function role(){
 
         return $this->belongsTo('App\Role');
@@ -59,7 +59,7 @@ class User extends Authenticatable
     }
 
 
-    public function post(){
+    public function posts(){
 
         return $this->hasMany('App\Post');
     }

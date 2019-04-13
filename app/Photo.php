@@ -17,5 +17,10 @@ class Photo extends Model
         return$this->uploads . $photo;
     }
 
+//    public function posts(){
+//
+//        return $this->belongsTo('App\Post');
+//    }
+
 
 }

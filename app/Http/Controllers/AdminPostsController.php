@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests\PostsCreateRequest;
 use App\Photo;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AdminPostsController extends Controller
 {
@@ -31,7 +33,10 @@ class AdminPostsController extends Controller
     public function create()
     {
         //
-        return view('admin.posts.create');
+
+        $categories = Category::pluck('name', 'id')->all();
+
+        return view('admin.posts.create', compact('categories'));
 
     }
 
@@ -43,28 +48,39 @@ class AdminPostsController extends Controller
      */
     public function store(PostsCreateRequest $request)
     {
-        //
-//        return $request->all();
+
+        //get all available inputs
         $input = $request->all();
 
+        //get the logged in user
         $user = Auth::user();
 
+        //grab the photo_id from users table
         if ($file = $request->file('photo_id')){
 
 //            return 'it works';
+
+            //concatenate time ti filename
             $name = time() . $file->getClientOriginalName();
 
+            //move named file to images folder, that wil b automatically created
             $file->move('img', $name);
 
+            //main photo table column(key) having a value of filename frm users table
             $photo = Photo::create(['file'=>$name]);
 
+            //equatin the user photo_id to the photo->id frm the main photos table
             $input['photo_id'] = $photo->id;
 
         }
 
         $user->posts()->create($input);
 
+        Session::flash('Created_post', 'Post Created Successfully');
+
+
         return redirect('ads/posts');
+
 
 
 
@@ -102,6 +118,8 @@ class AdminPostsController extends Controller
     public function update(Request $request, $id)
     {
         //
+//        Session::flash('Updated_post', 'Post Updated Successfully');
+
     }
 
     /**
@@ -113,5 +131,7 @@ class AdminPostsController extends Controller
     public function destroy($id)
     {
         //
+//        Session::flash('Deleted_post', 'Post Deleted Successfully');
+
     }
 }

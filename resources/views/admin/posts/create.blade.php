@@ -15,7 +15,7 @@
 
         <div class="form-group ">
             {!! Form::label('category_id', 'Category:', ['class'=>'control-label col-lg-2']) !!}
-            {!! Form::select('category_id', array(''=> 'Choose Category', 1=>'PHP', 0=>'javascript'), null, ['class'=>'form-control', 'id'=>'category']) !!}
+            {!! Form::select('category_id', [''=>'Choose Categories'] + $categories, null, ['class'=>'form-control', 'id'=>'category']) !!}
         </div>
 
         <div class="form-group ">
@@ -30,7 +30,7 @@
 
 
         <div class="form-group ">
-            {!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
+            {!! Form::submit('Create Post', ['class'=>'btn btn-primary']) !!}
         </div>
 
     {!! Form::close() !!}

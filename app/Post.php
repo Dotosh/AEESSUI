@@ -11,6 +11,7 @@ class Post extends Model
 
         'category_id',
         'photo_id',
+//        'user_id',
         'title',
         'body'
     ];
@@ -31,6 +32,6 @@ class Post extends Model
     //category table eloquent
     public function category(){
 
-       return $this->belongsTo('App\Category');
+        return $this->belongsTo('App\Category');
     }
 }
