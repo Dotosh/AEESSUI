@@ -130,10 +130,10 @@
                 </a>
                 <ul class="collapse list-unstyled" id="CategoriesSubmenu">
                     <li>
-                        <a href="{{route('users.index')}}">All Categories</a>
+                        <a href="{{route('categories.index')}}">All Categories</a>
                     </li>
                     <li>
-                        <a href="{{route('users.create')}}">Create Categories</a>
+                        <a href="{{route('categories.create')}}">Create Categories</a>
                     </li>
                 </ul>
             </li>

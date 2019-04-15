@@ -8,59 +8,28 @@
 
     <div class="col-sm-6">
 
-        {!! Form::model(['method'=>'PATCH','action'=>['AdminCategoriesController@update', $category->id], 'class'=>'form-validate', 'id'=>'feedback_form']) !!}
+        {!! Form::model($category, ['method'=>'PATCH','action'=>['AdminCategoriesController@update', $category->id], 'class'=>'form-validate', 'id'=>'feedback_form']) !!}
 
         <div class="form-group ">
-            {!! Form:: label('name', 'Category Name:', ['class'=>'control-label col-lg-2', 'span'=>'*']) !!}
+            {!! Form:: label('name', 'Category Name:', ['class'=>'control-label col-lg-2']) !!}
             {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Enter Category']) !!}
         </div>
 
         <div class="form-group ">
-            {!! Form::submit('Create Category', ['class'=>'btn btn-primary']) !!}
+            {!! Form::submit('Update Category', ['class'=>'btn btn-primary col-sm-6']) !!}
         </div>
 
         {!! Form::close() !!}
 
-    </div>
+{{--        Delete Category form--}}
+        {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminCategoriesController@destroy', $category->id]]) !!}
 
 
-    <div class="col-sm-6">
-
-        @if($categories)
-
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Created Date</th>
-                    <th>Updated Date</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                @foreach($categories as $category)
-                    <tr>
-                        <td>{{$category->id}}</td>
-                        <td>{{$category->name}}</td>
-                        <td>{{$category->created_at ? $category->created_at->diffForHumans() : 'no date'}}</td>
-                        <td>{{$category->updated_at ? $category->updated_at->diffForHumans() : 'no date'}}</td>
-                    </tr>
-
-                @endforeach
-
-                </tbody>
-            </table>
-
-        @endif
+        <div class="form-group">
+            {!! Form::submit('Delete Category', ['class'=>'btn btn-danger col-sm-6']) !!}
+        </div>
+        {!! Form::close() !!}
 
     </div>
-
-
-
 
 @endsection
-
-
-
-

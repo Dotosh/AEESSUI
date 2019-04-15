@@ -11,7 +11,7 @@
         {!! Form::open(['method'=>'POST','action'=>'AdminCategoriesController@store', 'class'=>'form-validate', 'id'=>'feedback_form']) !!}
 
             <div class="form-group ">
-                {!! Form:: label('name', 'Category Name:', ['class'=>'control-label col-lg-2', 'span'=>'*']) !!}
+                {!! Form:: label('name', 'Category Name:', ['class'=>'control-label col-lg-2']) !!}
                 {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Enter Category']) !!}
             </div>
 
@@ -42,7 +42,7 @@
             @foreach($categories as $category)
                 <tr>
                     <td>{{$category->id}}</td>
-                    <td>{{$category->name}}</td>
+                    <td><a href="{{route('categories.edit', $category->id)}}">{{$category->name}}</a></td>
                     <td>{{$category->created_at ? $category->created_at->diffForHumans() : 'no date'}}</td>
                     <td>{{$category->updated_at ? $category->updated_at->diffForHumans() : 'no date'}}</td>
                 </tr>
