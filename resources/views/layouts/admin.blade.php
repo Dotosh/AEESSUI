@@ -124,10 +124,18 @@
                 </ul>
             </li>
             <li>
-                <a href="#">
-                    <i class="fas fa-image"></i>
-                    Portfolio
+                <a href="#CategoriesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-home"></i>
+                    Categories
                 </a>
+                <ul class="collapse list-unstyled" id="CategoriesSubmenu">
+                    <li>
+                        <a href="{{route('users.index')}}">All Categories</a>
+                    </li>
+                    <li>
+                        <a href="{{route('users.create')}}">Create Categories</a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <a href="#">

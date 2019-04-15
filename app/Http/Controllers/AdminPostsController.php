@@ -108,11 +108,11 @@ class AdminPostsController extends Controller
     {
         //
         $post = Post::findOrFail($id);
+
         $categories = Category::pluck('name', 'id')->all();
 
         return view('admin.posts.edit', compact('post', 'categories'));
 
-        redirect('ads/posts');
     }
 
     /**
