@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminCategoriesController extends Controller
 {
@@ -31,6 +32,10 @@ class AdminCategoriesController extends Controller
     {
         //
         Category::create($request->all());
+
+
+        //the Session Facade alerts a message in the index blade
+        Session::flash('Created_category', 'Category Created Successfully');
 
         return redirect('ads/categories');
     }
@@ -74,6 +79,10 @@ class AdminCategoriesController extends Controller
 
         $category->update($request->all());
 
+
+        //the Session Facade alerts a message in the index blade
+        Session::flash('Updated_category', 'Category Updated Successfully');
+
         return redirect('ads/categories');
     }
 
@@ -91,6 +100,10 @@ class AdminCategoriesController extends Controller
 //        $category->delete();
 
         Category::findOrFail($id)->delete();
+
+
+        //the Session Facade alerts a message in the index blade
+        Session::flash('Deleted_category', 'Category Deleted Successfully');
 
         return redirect('ads/categories');
     }

@@ -3,7 +3,22 @@
 
 @section('content')
 
-<h1>Categories</h1>
+    @if(Session::has('Updated_category'))
+
+        <p class="alert alert-success text-center" >{{session('Updated_category')}}</p>
+
+    @elseif(Session::has('Created_category'))
+
+        <p class="alert alert-success text-center" >{{session('Created_category')}}</p>
+
+    @elseif(Session::has('Deleted_category'))
+
+        <p class="alert alert-danger text-center" >{{session('Deleted_category')}}</p>
+
+    @endif
+
+
+    <h1>Categories</h1>
 
 
     <div class="col-sm-6">

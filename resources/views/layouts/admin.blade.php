@@ -29,6 +29,7 @@
 
     <link rel="stylesheet" href="{{asset('js/adminmaster/bootstrap.min.js')}}">
 
+    @yield('style')
 
 
 </head>
@@ -134,6 +135,20 @@
                     </li>
                     <li>
                         <a href="{{route('categories.create')}}">Create Categories</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#MediaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-home"></i>
+                    Media
+                </a>
+                <ul class="collapse list-unstyled" id="MediaSubmenu">
+                    <li>
+                        <a href="{{route('media.index')}}">All Media</a>
+                    </li>
+                    <li>
+                        <a href="{{route('media.create')}}">Upload Media</a>
                     </li>
                 </ul>
             </li>
@@ -276,6 +291,9 @@
         });
     });
 </script>
+
+@yield('script')
+
 </body>
 
 </html>
