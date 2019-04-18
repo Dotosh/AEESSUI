@@ -37,6 +37,11 @@ Route::group(['middleware'=>'admin'], function (){
 
     Route::resource('ads/media', 'AdminMediaController');
 
+
+    Route::resource('ads/comments', 'PostCommentsController');
+
+    Route::resource('ads/comment/replies', 'CommentRepliesController');
+
 });
 
 

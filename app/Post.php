@@ -34,4 +34,11 @@ class Post extends Model
 
         return $this->belongsTo('App\Category');
     }
+
+    public function comments(){
+
+//        Read backward : Post (Post model) has many comments
+        return $this->hasMany('App\Comment');
+
+    }
 }

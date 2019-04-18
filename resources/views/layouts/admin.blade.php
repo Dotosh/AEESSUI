@@ -122,6 +122,9 @@
                     <li>
                         <a href="{{route('posts.create')}}">Create Posts</a>
                     </li>
+                    <li>
+                        <a href="{{route('comments.index')}}">Comments</a>
+                    </li>
                 </ul>
             </li>
             <li>
