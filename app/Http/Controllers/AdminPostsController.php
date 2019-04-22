@@ -70,7 +70,7 @@ class AdminPostsController extends Controller
             //main photo table column(key) having a value of filename frm users table
             $photo = Photo::create(['file'=>$name]);
 
-            //equatin the user photo_id to the photo->id frm the main photos table
+            //equating the user photo_id to the photo->id frm the main photos table
             $input['photo_id'] = $photo->id;
 
         }
@@ -172,6 +172,16 @@ class AdminPostsController extends Controller
         Session::flash('Deleted_post', 'Post Deleted Successfully');
 
         return redirect('ads/posts');
+
+    }
+
+
+    public function post($id){
+
+        $post = Post::findOrFail($id);
+
+        return view('post', compact('post'));
+
 
     }
 }

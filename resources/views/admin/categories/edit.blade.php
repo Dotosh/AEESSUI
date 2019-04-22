@@ -8,7 +8,7 @@
 
     <div class="col-sm-6">
 
-        {!! Form::model($category, ['method'=>'PATCH','action'=>['AdminCategoriesController@update', $category->id], 'class'=>'form-validate', 'id'=>'feedback_form']) !!}
+        {!! Form::model($category, ['method'=>'PATCH','action'=>['AdminCategoriesController@update', $category->id], 'class'=>'form-validate']) !!}
 
         <div class="form-group ">
             {!! Form:: label('name', 'Category Name:', ['class'=>'control-label col-lg-2']) !!}
@@ -20,6 +20,12 @@
         </div>
 
         {!! Form::close() !!}
+
+    </div>
+
+    @include('includes.form_error')
+
+    <div>
 
 {{--        Delete Category form--}}
         {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminCategoriesController@destroy', $category->id]]) !!}

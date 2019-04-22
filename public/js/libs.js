@@ -2021,11 +2021,4 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
 }(window.jQuery);
 
-$(document).ready(function () {
-
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-    });
-
-});
-//# sourceMappingURL=all.js.map
+//# sourceMappingURL=libs.js.map

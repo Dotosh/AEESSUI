@@ -38,6 +38,8 @@
 
     </div>
 
+    @include('includes.form_error')
+
 
     <div class="col-sm-6">
 
@@ -57,7 +59,7 @@
             @foreach($categories as $category)
                 <tr>
                     <td>{{$category->id}}</td>
-                    <td><a href="{{route('categories.edit', $category->id)}}">{{$category->name}}</a></td>
+                    <td class="la"><a href="{{route('categories.edit', $category->id)}}">{{$category->name}}</a></td>
                     <td>{{$category->created_at ? $category->created_at->diffForHumans() : 'no date'}}</td>
                     <td>{{$category->updated_at ? $category->updated_at->diffForHumans() : 'no date'}}</td>
                 </tr>

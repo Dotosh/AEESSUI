@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//this route pulls the post.blade bog
+Route::get('/post/{id}', ['as'=>'post', 'uses'=>'AdminPostsController@post']);
+
 
 
 
@@ -36,7 +39,6 @@ Route::group(['middleware'=>'admin'], function (){
     Route::resource('ads/categories', 'AdminCategoriesController');
 
     Route::resource('ads/media', 'AdminMediaController');
-
 
     Route::resource('ads/comments', 'PostCommentsController');
 

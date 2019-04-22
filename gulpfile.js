@@ -1,7 +1,8 @@
 var elixir = require('laravel-elixir');
 
 elixir(function (mix) {
-    mix.sass('resources/sass/app.sass','public/css' )
+    mix.sass('app.scss' )
+
         .styles([
 
 
@@ -35,7 +36,7 @@ elixir(function (mix) {
             'xcharts.min.css',
             'aeessui.css'
 
-        ], 'public/css')
+        ], 'public/css/libs.css')
 
 
         .scripts([
@@ -44,7 +45,7 @@ elixir(function (mix) {
             'bootstrap.js',
             'aeessui.js'
 
-        ], 'public/js')
+        ], 'public/js/libs.js')
 
 
 });
