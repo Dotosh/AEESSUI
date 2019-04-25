@@ -30,6 +30,7 @@
                 <th>Created</th>
                 <th>Updated</th>
                 <th>Post</th>
+                <th>Reply</th>
 
             </tr>
             </thead>
@@ -47,6 +48,7 @@
 
 {{--                    the route is from the custom route post/{id}--}}
                     <td class="la"><a href="{{route('post', $comment->post->id)}}">View Post</a></td>
+                    <td class="la"><a href="{{route('replies.show', $comment->id)}}">View Reply</a></td>
 
                     <td>
                         @if($comment->is_active == 1)

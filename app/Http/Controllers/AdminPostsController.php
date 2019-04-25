@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Comment;
 use App\Http\Requests\PostsCreateRequest;
 use App\Photo;
 use App\Post;
@@ -176,11 +177,15 @@ class AdminPostsController extends Controller
     }
 
 
+//    this is a custom function
     public function post($id){
 
         $post = Post::findOrFail($id);
 
-        return view('post', compact('post'));
+//        This checks and displays only active/approved comments
+        $comments = $post->comments()->whereIsActive(1)->get();
+
+        return view('post', compact('post', 'comments'));
 
 
     }

@@ -24,6 +24,8 @@
     <script src="{{url('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')}}" ></script>
     <![endif]-->
 
+    @yield('styles')
+
 </head>
 
 <body>
@@ -145,13 +147,16 @@
     </footer>
 
 </div>
-<!-- /.container -->
+    <!-- /.container -->
 
-<!-- jQuery -->
-<script src="{{asset('js/adminmaster/jquery.js')}}"></script>
+    <!-- jQuery -->
+    <script src="{{asset('js/adminmaster/jquery.js')}}"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="{{asset('js/adminmaster/bootstrap.min.js')}}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{asset('js/adminmaster/bootstrap.min.js')}}"></script>
+
+    @yield('scripts')
+
 
 </body>
 

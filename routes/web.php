@@ -46,4 +46,13 @@ Route::group(['middleware'=>'admin'], function (){
 
 });
 
+Route::group(['middleware'=>'auth'], function (){
+
+//      why use post? find out
+
+    Route::post('comment/reply', 'CommentRepliesController@createreply');
+
+
+});
+
 

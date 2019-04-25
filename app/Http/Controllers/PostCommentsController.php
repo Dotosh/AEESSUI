@@ -63,7 +63,7 @@ class PostCommentsController extends Controller
 
         Comment::create($data);
 
-        $request->session()->flash('comment_message', 'Message Submitted Successfully! Awaiting moderation');
+        $request->session()->flash('comment_message', 'Message Submitted Successfully! Awaiting Moderation');
 
 //      the back() attribute returns it to the same page
         return redirect()->back();
